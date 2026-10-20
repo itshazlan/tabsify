@@ -1,0 +1,25 @@
+{
+  "name": "tabsify",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter '*' dev",
+    "dev:api": "bun run --cwd apps/api dev",
+    "dev:web": "bun run --cwd apps/web dev",
+    "build": "bun run --cwd apps/web build",
+    "start": "bun run --cwd apps/api start",
+    "test": "bun test",
+    "ml:setup": "cd services/ml && /opt/homebrew/bin/python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt",
+    "ml:optional": "services/ml/.venv/bin/pip install demucs torchcrepe",
+    "ml:test": "services/ml/.venv/bin/python services/ml/tests/test_synthetic.py",
+    "typecheck": "bunx tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.7.0"
+  }
+}
