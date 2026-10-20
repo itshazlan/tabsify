@@ -1,0 +1,30 @@
+node_modules/
+dist/
+.tmp/
+.cache/
+data/
+*.db
+*.db-wal
+*.db-shm
+.DS_Store
+.env
+.env.local
+bun.lockb.bak
+
+# python / ml sidecar
+.pip-cache/
+services/ml/.venv/
+__pycache__/
+*.pyc
+
+# audio uji coba (jangan commit rekaman berhak cipta)
+samples/*
+!samples/README.md
+
+# aset vendor alphaTab (disalin otomatis oleh scripts/copy-alpha-assets.mjs)
+apps/web/public/font/
+apps/web/public/soundfont/
+apps/web/public/assets/
+
+# artifact build typescript
+*.tsbuildinfo

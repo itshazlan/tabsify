@@ -1,0 +1,10 @@
+# Pipeline audio -> tab (wajib)
+numpy>=1.26
+scipy>=1.11
+librosa>=0.10.2
+soundfile>=0.12
+
+# Opsional, lebih akurat tapi butuh torch:
+#   torchcrepe
+# Opsional, pemisahan stem gitar:
+#   demucs
