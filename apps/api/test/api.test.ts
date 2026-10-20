@@ -212,11 +212,12 @@ describe("tabsify api", () => {
         expect(started.status).toBe(202);
         const { jobId } = (await started.json()) as { jobId: string };
 
-        let payload: { status: string; summary?: Record<string, unknown>; bars?: unknown[] } | null = null;
+        type VerifyPayload = { status: string; summary?: Record<string, unknown>; bars?: unknown[] };
+        let payload: VerifyPayload | null = null;
         for (let attempt = 0; attempt < 60; attempt += 1) {
           await Bun.sleep(1000);
           const response = await app.request(`/api/verify/${jobId}`);
-          payload = (await response.json()) as typeof payload;
+          payload = (await response.json()) as VerifyPayload;
           if (payload?.status !== "running") break;
         }
         return payload;
